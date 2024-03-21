@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('car_logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('appointment_id');
-            $table->foreignId('car_id');
+            $table->foreignId('user_id')->references('id')->on('users');;
+            $table->foreignId('appointment_id')->references('id')->on('appointments');;
+            $table->foreignId('car_id')->references('id')->on('cars');;
             $table->string('name');
             $table->string('description');
             $table->timestamps();

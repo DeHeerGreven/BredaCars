@@ -6,9 +6,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -46,5 +48,19 @@ class User extends Authenticatable
     public function car_logs()
     {
         return $this->hasMany(CarLog::class);
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'appointment_user');
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        if ($panel->getId() === 'admin') {
+            return str_ends_with($this->email, 'admin@email.com');
+        }
+ 
+        return true;
     }
 }

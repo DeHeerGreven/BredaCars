@@ -15,4 +15,9 @@ class Appointment extends Model
     {
         return $this->hasOne(CarLog::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'appointment_user');
+    }
 }
