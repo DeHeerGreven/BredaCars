@@ -6,13 +6,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Filament\Models\Contracts\FilamentUser;
-use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    const ROLE_ADMIN = 'admin';
+    const ROLE_MECHANIC = 'mechanic';
+
+    const ROLES = [
+        self::ROLE_ADMIN => 'admin',
+        self::ROLE_MECHANIC => 'mechanic',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +29,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -55,12 +62,14 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Appointment::class, 'appointment_user');
     }
 
-    public function canAccessPanel(Panel $panel): bool
+
+    public function isAdmin()
     {
-        if ($panel->getId() === 'admin') {
-            return str_ends_with($this->email, 'admin@email.com');
-        }
- 
-        return true;
+        return $this->role === self::ROLE_ADMIN;
+    }
+
+    public function isMechanic()
+    {
+        return $this->role === self::ROLE_MECHANIC;
     }
 }
