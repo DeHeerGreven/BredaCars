@@ -13,7 +13,7 @@ class CarPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isMechanic();
     }
 
     /**
@@ -21,7 +21,7 @@ class CarPolicy
      */
     public function view(User $user, Car $car): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isMechanic();
     }
 
     /**
