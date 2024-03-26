@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('brand');
             $table->string('model');
+            $table->string('description');
             $table->enum('appointment_type', ['reparatie', 'keuring'])->default('reparatie');
             $table->dateTime('appointment_date');
             $table->timestamps();

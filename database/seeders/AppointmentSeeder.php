@@ -26,6 +26,7 @@ class AppointmentSeeder extends Seeder
             'phone_number' => '+3163432732',
             'brand' => 'Opel',
             'model' => 'Corsa',
+            'description' => 'Motor maakt raar geluid',
             'appointment_type' => 'reparatie',
             'appointment_date' => Carbon::now(),  
         ]);

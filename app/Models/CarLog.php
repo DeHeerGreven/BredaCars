@@ -13,7 +13,7 @@ class CarLog extends Model
 
     public function appointment()
     {
-        return $this->belongsTo(Appointment::class);
+        return $this->belongsTo(Appointment::class, 'appointment_id');
     }
 
     public function user()
@@ -28,7 +28,7 @@ class CarLog extends Model
 
     public function parts()
     {
-        return $this->hasMany(Part::class);
+        return $this->hasMany(Part::class, 'car_logs_parts');
     }
 
 }

@@ -6,9 +6,12 @@ use App\Filament\Resources\AppointmentResource\Pages;
 use App\Filament\Resources\AppointmentResource\RelationManagers;
 use App\Filament\Resources\AppointmentResource\RelationManagers\UsersRelationManager;
 use App\Models\Appointment;
+use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -16,6 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentResource extends Resource
 {
@@ -26,17 +30,30 @@ class AppointmentResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Section::make('Users')->schema([
-                    Select::make('users')
-                        ->relationship('users', 'name')
-                        ->multiple()
-                ])
-            ]);
+        ->schema([
+
+        ]);
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $user = Auth::user();
+    
+        if ($user->isAdmin()) {
+            // Voor beheerders, haal alle afspraken op
+            return parent::getEloquentQuery();
+        } else {
+            // Voor monteurs, haal alleen hun eigen afspraken op
+            return parent::getEloquentQuery()->whereHas('users', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            });
+        }
     }
 
     public static function table(Table $table): Table
     {
+
+        $user = Auth::user();
         return $table
             ->columns([
                 TextColumn::make('id')
@@ -82,6 +99,10 @@ class AppointmentResource extends Resource
                 ->searchable()
                 ->toggleable(),
                 TextColumn::make('model')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+                TextColumn::make('description')
                 ->sortable()
                 ->searchable()
                 ->toggleable(),

@@ -10,27 +10,15 @@
 </head>
 <body>
     {{-- HEADER --}}
-    <div class="navbar bg-gray-900">
-        <div class="flex-1">
-          <a class="text-white text-3xl pl-8">BredaCars</a>
-        </div>
-        <div class="flex-none">
-          <ul class="menu menu-horizontal px-24">
-            <li class="text-2xl text-white font-bold"><a>Home</a></li>
-            <li class="text-2xl text-white font-bold"><a>Services</a></li>
-            <li class="text-2xl text-white font-bold"><a>Over ons</a></li>
-            <li class="text-2xl text-white font-bold"><a>Contact</a></li>
-          </ul>
-        </div>
-      </div>
+    @include('components.header')
     {{--MAIN--}}
-    <div class="hero" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg); height:500px;">
-        <div class="hero-overlay bg-black bg-opacity-80"></div>
+    <div class="hero" style="background-image: url(images/car-repair-garage.jpg); height:500px;">
+        <div class="hero-overlay bg-black bg-opacity-70"></div>
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div>
-              <h1 class="text-5xl w-96 text-white font-bold">Box Office News!</h1>
+              <h1 class="text-5xl w-96 text-white font-bold">Welkom bij BredaCars</h1>
               <p class="py-6 w-2/4 text-white">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-              <button class="btn btn-primary">Get Started</button>
+              <a href="{{route('appointments.create')}}" class="btn btn-error text-white">Maak afspraak</a>
             </div>
           </div>
     </div>
@@ -83,5 +71,57 @@
             </div>
         </div>
     </div>
+    <div class="hero bg-base-200 p-4">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+          <img src="images/wat_doen_wij.jpg" class="w-full max-w-sm rounded-lg shadow-2xl" />
+          <div>
+            <h1 class="text-5xl font-bold">Wat doen wij?</h1>
+            <p class="py-6 w-2/4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            <p class="py-6 w-2/4"> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+          </div>
+        </div>
+    </div>
+    <div class="hero bg-slate-100">
+      <div class="hero-content text-center mt-4">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">Neem contact op</h1>
+          <p class="py-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+  </div>
+  <div class="hero bg-slate-100 p-8">
+      <div class="flex justify-center space-x-8">
+          <div class="card w-96 bg-base-100 shadow-xl">
+              <div class="flex justify-center mt-4">
+                  <img src="images/map.png" alt="Shoes" class="w-24 h-24">
+              </div>
+              <div class="card-body text-center">
+                  <h2 class="font-semibold text-2xl">Ons hoofdkantoor</h2>
+                  <p class="text-base">Pietjeslaan 34</p>
+                  <p class="text-base">9321 DW Breda</p>
+              </div>
+          </div>
+          <div class="card w-96 bg-base-100 shadow-xl">
+              <div class="flex justify-center mt-4">
+                  <img src="images/phone-call.png" title="phone icons" alt="Shoes" class="w-24 h-24">
+              </div>
+              <div class="card-body text-center">
+                  <h2 class="font-semibold text-2xl">Telefoonummer</h2>
+                  <p class="text-base">0123456789</p>
+              </div>
+          </div>
+          <div class="card w-96 bg-base-100 shadow-xl">
+              <div class="flex justify-center mt-4">
+                  <img src="images/email.png" alt="Shoes" class="w-24 h-24">
+              </div>
+              <div class="card-body text-center">
+                  <h2 class="font-semibold text-2xl">Email</h2>
+                  <p class="text-base">bredacars@gmail.com</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  {{--FOOTER--}}
+  @include('components.footer')
 </body>
 </html>

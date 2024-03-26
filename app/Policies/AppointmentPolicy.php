@@ -13,23 +13,22 @@ class AppointmentPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isMechanic();
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Appointment $appointment): bool
+    public function view(User $user, Appointment $appointment) : bool
     {
-        return $user->isAdmin();
+        return $user->id === $appointment->user_id;
     }
-
     /**
      * Determine whether the user can create models.
      */
     public function create(User $user): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isMechanic();
     }
 
     /**
@@ -37,7 +36,7 @@ class AppointmentPolicy
      */
     public function update(User $user, Appointment $appointment): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isMechanic();
     }
 
     /**

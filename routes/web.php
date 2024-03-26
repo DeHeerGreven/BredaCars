@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('appointments/create', [AppointmentController::class, 'create'])->name("appointments.create");
+Route::post('appointments/store', [AppointmentController::class, 'store'])->name("appointments.store");
