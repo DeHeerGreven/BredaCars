@@ -30,8 +30,10 @@ class CarLogResource extends Resource
         return $form
             ->schema([
             Section::make('Car Log')->schema([
+                // Voer de gegevens van de log in
                 TextInput::make('name')->label('Name')->required(),
                 RichEditor::make('description')->label('Description')->required(),
+                // Selecteer de specifieke gebruiker
                 Select::make('user_id')
                 ->label('User')
                 ->relationship('user', 'id')
@@ -49,14 +51,6 @@ class CarLogResource extends Resource
                     ->relationship('car', 'id')
                     ->searchable()
                     ->required(),
-                // Selecteer de specifieke onderdelen
-                // Select::make('part_id')
-                // ->label('Parts')
-                // ->relationship('parts', 'name')
-                // ->searchable()
-                // ->multiple()
-                // ->required(),
-                // TextInput::make('amount')->label('Amount')->numeric()->required(),
             ]),
         ]);
     }
