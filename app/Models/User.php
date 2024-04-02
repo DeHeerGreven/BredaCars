@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public function car_logs()
     {
-        return $this->hasMany(CarLog::class);
+        return $this->hasMany(CarLog::class, 'car_logs');
     }
 
     public function appointments()

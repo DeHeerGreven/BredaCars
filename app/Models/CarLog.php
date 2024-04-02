@@ -28,7 +28,12 @@ class CarLog extends Model
 
     public function parts()
     {
-        return $this->hasMany(Part::class, 'car_logs_parts');
+        return $this->belongsToMany(Part::class, 'car_logs_parts')->select('parts.id');
+    }
+
+    public function carLogsParts()
+    {
+        return $this->hasMany(CarLogsParts::class);
     }
 
 }

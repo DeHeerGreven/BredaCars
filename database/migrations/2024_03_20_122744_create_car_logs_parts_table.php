@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('car_logs_parts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('car_log_id')->references('id')->on('car_logs');;
-            $table->foreignId('part_id')->references('id')->on('parts');;
+            $table->foreignId('part_id')->references('id')->on('parts');
             $table->integer('amount');
             $table->timestamps();
         });

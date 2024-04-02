@@ -9,7 +9,7 @@ class Part extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'amount'];
+    protected $fillable = ['name', 'description', 'amount_of_parts'];
 
     public function car_logs()
     {

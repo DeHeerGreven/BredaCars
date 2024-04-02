@@ -69,21 +69,7 @@ class AppointmentController extends Controller
             'appointment_type' => $request->input('appointment_type'),
             'appointment_date' => $request->input('appointment_date'),
 
-            // Add other fields if needed
         ]);
-    
-        // $token = Str::random(40);
-    
-        // DB::table('password_reset_tokens')->insert([
-        //     'email' => $request->input('email'),
-        //     'token' => Hash::make($token),
-        //     'created_at' => now(),
-        // ]);
-    
-
-        // $resetUrl = route('password.reset', ['token' => $token]);
-        // Mail::to($customer->email)->send(new CustomerRegistration($customer, $resetUrl, $token));
-    
         return view('appointments.succes');
     }
 
