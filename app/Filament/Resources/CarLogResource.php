@@ -24,11 +24,40 @@ class CarLogResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
 
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-
+            Section::make('Car Log')->schema([
+                TextInput::make('name')->label('Name')->required(),
+                RichEditor::make('description')->label('Description')->required(),
+                Select::make('user_id')
+                ->label('User')
+                ->relationship('user', 'id')
+                ->searchable()
+                ->required(), 
+                // Selecteer de specifieke appointment
+                Select::make('appointment_id')
+                    ->label('Appointment')
+                    ->relationship('appointment', 'id')
+                    ->searchable()
+                    ->required(),            
+                // Selecteer de specifieke auto
+                Select::make('car_id')
+                    ->label('Car')
+                    ->relationship('car', 'id')
+                    ->searchable()
+                    ->required(),
+                // Selecteer de specifieke onderdelen
+                // Select::make('part_id')
+                // ->label('Parts')
+                // ->relationship('parts', 'name')
+                // ->searchable()
+                // ->multiple()
+                // ->required(),
+                // TextInput::make('amount')->label('Amount')->numeric()->required(),
+            ]),
         ]);
     }
 
@@ -54,7 +83,7 @@ class CarLogResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            CarLogResource\RelationManagers\PartsRelationManager::class
         ];
     }
 
