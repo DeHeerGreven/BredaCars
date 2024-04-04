@@ -100,6 +100,37 @@
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" required name="description" id="description" type="text" placeholder="Vul hier de beschrijving in">
                     </div>
                     <div class="">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="license_plate">
+                            Kenteken
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" required name="license_plate" id="license_plate" type="text" placeholder="Vul hier de beschrijving in">
+                    </div>
+                    <div class="mt-2">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="transaction">
+                            Transactie
+                        </label>
+                        <select class="select select-bordered w-full max-w-xs" name="transaction" id="transaction">
+                            <option>Schakel</option>
+                            <option>Automaat</option>
+                          </select>
+                    </div>
+                    <div class="mt-2">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="fuel">
+                            Brandstof
+                        </label>
+                        <select class="select select-bordered w-full max-w-xs" name="fuel" id="fuel">
+                            <option>Benzine</option>
+                            <option>Diesel</option>
+                            <option>Elektrisch</option>
+                          </select>
+                    </div>
+                    <div class="mt-2">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="color">
+                            Kleur
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" required name="color" id="color" type="text" placeholder="Vul hier de beschrijving in">
+                    </div>
+                    <div class="">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="appointment_type">
                             Type afspraak
                         </label>

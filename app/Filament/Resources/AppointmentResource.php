@@ -110,6 +110,10 @@ class AppointmentResource extends Resource
                 ->sortable()
                 ->searchable()
                 ->toggleable(),
+                TextColumn::make('license_plate')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
                 TextColumn::make('appointment_type')
                 ->sortable()
                 ->searchable()

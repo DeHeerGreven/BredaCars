@@ -32,7 +32,7 @@ class PartResource extends Resource
                 ->schema([
                     TextInput::make('name')->required(),
                     TextInput::make('description')->required(),
-                    TextInput::make('amount')->required()->numeric(),
+                    TextInput::make('amount_of_parts')->required()->numeric(),
                 ])->columnSpan(2)->columns(2),
             ])->columns(3);
     }

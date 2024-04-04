@@ -25,6 +25,10 @@ return new class extends Migration
             $table->string('brand');
             $table->string('model');
             $table->string('description');
+            $table->string('license_plate');
+            $table->enum('transaction', ['schakel', 'auto']);
+            $table->enum('fuel', ['benzine', 'diesel', 'elektrisch']);
+            $table->string('color');
             $table->enum('appointment_type', ['reparatie', 'keuring'])->default('reparatie');
             $table->dateTime('appointment_date');
             $table->timestamps();

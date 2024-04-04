@@ -40,6 +40,10 @@ class AppointmentController extends Controller
             'brand' => 'required',
             'model' => 'required',
             'description' => 'required',
+            'fuel' => 'required',
+            'transaction' => 'required',
+            'color' => 'required',
+            'license_plate' => 'required',
             'appointment_type' => 'required',
             'appointment_date' => 'required'
             // Add other fields if needed
@@ -66,6 +70,8 @@ class AppointmentController extends Controller
             'brand' => $request->input('brand'),
             'model' => $request->input('model'),
             'description' => $request->input('description'),
+            'license_plate' => $request->input('license_plate'),
+            'color' => $request->input('color'),
             'appointment_type' => $request->input('appointment_type'),
             'appointment_date' => $request->input('appointment_date'),
 
