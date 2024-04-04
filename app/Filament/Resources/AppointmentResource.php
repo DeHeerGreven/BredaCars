@@ -31,8 +31,11 @@ class AppointmentResource extends Resource
     {
         return $form
         ->schema([
-
-            
+            Section::make('Users')->schema([
+                Select::make('users')
+                    ->relationship('users', 'name')
+                    ->multiple()
+            ])      
         ]);
     }
 
