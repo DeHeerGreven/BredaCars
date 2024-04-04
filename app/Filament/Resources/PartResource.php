@@ -53,7 +53,7 @@ class PartResource extends Resource
                 ->sortable()
                 ->searchable()
                 ->toggleable(),
-                TextColumn::make('amount')
+                TextColumn::make('amount_of_parts')
                 ->sortable()
                 ->searchable()
                 ->toggleable(),

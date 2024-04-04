@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -59,7 +60,30 @@ class CarLogResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('id')
+                ->sortable()
+                ->searchable()
+                ->toggleable(isToggledHiddenByDefault:true),
+                TextColumn::make('name')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+                TextColumn::make('description')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+                TextColumn::make('user_id')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+                TextColumn::make('appointment_id')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
+                TextColumn::make('car_id')
+                ->sortable()
+                ->searchable()
+                ->toggleable(),
             ])
             ->filters([
                 //
