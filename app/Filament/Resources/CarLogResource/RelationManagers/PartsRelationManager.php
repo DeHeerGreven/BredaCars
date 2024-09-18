@@ -24,7 +24,7 @@ class PartsRelationManager extends RelationManager
                 ->options(Part::all()->pluck('name', 'id'))
                 ->searchable()
                     ->required(),
-                Forms\Components\TextInput::make('amount_of_parts')
+                Forms\Components\TextInput::make('amount')
                 ->numeric()->required()
             ]);
     }

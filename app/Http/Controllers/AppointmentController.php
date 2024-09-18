@@ -49,11 +49,6 @@ class AppointmentController extends Controller
             // Add other fields if needed
         ]);
     
-        // Create a new customer
-        // $customer = User::create([
-        //     'name' => $request->input('name'),
-        //     'role' => 'customer',
-        // ]);
     
         // Create a new company and associate it with the user
         $appointment = Appointment::create([

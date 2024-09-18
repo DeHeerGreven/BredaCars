@@ -7,21 +7,15 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
-<body>
+<body style= 'font-family: "Bebas Neue", sans-serif;'>
+    {{--HEADER--}}
     @include('components.header')
-    <div class="container mx-auto">
-        <div class="text-center mt-64">
-            <img src="images/succes.png" alt="">
-            <h2 class="text-5xl font-bold mb-8">Afspraak is gemaakt!</h2>
-            <h6 class="text-2xl font-bold mb-8">U wordt over 5 seconden automatisch teruggestuurd!</h6>
-            <script>
-                setTimeout(() => {
-                    window.location = "{{ url('/') }}"; // specify the URL directly
-                }, 5000);
-            </script>
-        </div>
-    </div>
+    {{--SUCCES NOTIFICATION--}}
+    @include('components.success_notification')
 </body>
 </html>
 

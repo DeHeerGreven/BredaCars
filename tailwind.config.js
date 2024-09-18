@@ -5,13 +5,13 @@ export default {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
+  
   theme: {
-    extend: {
-      fontFamily:{
-        
-      }
-    },
+    extend: {},
+    fontFamily: {
+    }
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 }
+
 
