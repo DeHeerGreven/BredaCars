@@ -13,11 +13,11 @@
     <script src="https://unpkg.com/split-type"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="resources/js/app.js"></script>
-  
+
 </head>
 <body style= 'font-family: "Bebas Neue", sans-serif;'>
   {{-- HEADER --}}
-  @include('components.header')
+  @include('components.nav')
   {{--MAIN--}}
   @include('components.main')
   {{-- SERVICES --}}

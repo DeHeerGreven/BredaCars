@@ -1,0 +1,13 @@
+.navbar {
+    @apply bg-gray-900;
+}
+
+.nav__logo {
+    @apply text-white mx-12 text-3xl;
+
+    a {
+        strong {
+            @apply text-red-500;
+        }
+    }
+}
