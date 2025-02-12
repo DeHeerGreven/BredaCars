@@ -1,4 +1,4 @@
-<div class="navbar bg-gray-900">
+<!-- <div class="navbar bg-gray-900">
   <div class="">
 
   </div>
@@ -10,7 +10,7 @@
           <a href="#contact" class="text-2xl text-white font-regular hover:text-gray-400">Contact</a>
       </div>
   </div>
-</div>
+</div> -->
 
 <div class="nav">
     <div class="nav__container">
@@ -22,11 +22,6 @@
                 <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
                 <li class="nav__item"><a href="introduction" class="nav__link">Over mij</a></li>
                 <li class="nav__item"><a href="contact" class="nav__link">Contact</a></li>
-
-                <li><a href="{{ url('/') }}" class="text-2xl text-white font-regular hover:text-gray-400">Home</a></li>
-                <li><a href="#services" class="text-2xl text-white font-regular hover:text-gray-400">Services</a></li>
-                <li><a href="#aboutus" class="text-2xl text-white font-regular hover:text-gray-400">Over ons</a></li>
-                <li><a href="#contact" class="text-2xl text-white font-regular hover:text-gray-400">Contact</a></li>
             </ul>
 
             <!-- <button class="menu-toggle" id="menu-toggle">
